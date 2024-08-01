@@ -38,13 +38,12 @@ class OWMWeather {
             });
     }
 }
+ function displayForecast(json) {
+    let unix = json.list[0].dt; // IN SECONDS
+    unix *= 1000; // IN MILLISECONDS --> good for JavaScript
+    let date = new Date(unix); // pass in ms
+     let hours = date.getHours();
+   let minutes = date.getMinutes();
 
-// function displayForecast(json) {
-//     let unix = json.list[0].dt; // IN SECONDS
-//     unix *= 1000; // IN MILLISECONDS --> good for JavaScript
-//     let date = new Date(unix); // pass in ms
-//     let hours = date.getHours();
-//     let minutes = date.getMinutes();
-
-//     document.getElementById("time").innerHTML = `${hours}:${minutes.toString().padStart(2, "0")}`;
-// }
+  document.getElementById("time").innerHTML = `${hours}:${minutes.toString().padStart(2, "0")}`;
+ }
